@@ -659,6 +659,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../misc/create_own_config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to bring your own config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1036,16 +1059,9 @@ The script will not be tracked by git.
 In this script you need to add a environment variables:</p>
 <ul>
 <li><code>ROS_DOMAIN_ID</code> <strong>(Required)</strong>: which is used to define nodes that should be able to see each other. In our <a href="../misc/demos/">demos</a> they are set to 100 as default.</li>
-<li>
-<p><code>CRISP_CONFIG_PATH</code> <strong>(Optional)</strong>: which should be the path to a config folder similar to <a href="https://github.com/utiasDSL/crisp_py/tree/main/config">config path of CRISP_PY</a>. 
+<li><code>CRISP_CONFIG_PATH</code> <strong>(Optional)</strong>: which should be the path to a config folder similar to <a href="https://github.com/utiasDSL/crisp_py/tree/main/config">config path of CRISP_PY</a>. 
     If this environment variable is unset, the default configurations will be used.
-    If the user wants to add configurations, simply create a folder with your own configs and make this environment variable point to that config folder.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For <code>crisp_gym&gt;=2.0.0</code> you can have multiple config paths separated by a colon ":" and check the config paths set using the script <code>scripts/check_config.py</code>.
-Check the example below.</p>
-</div>
-</li>
+    Check <a href="../misc/create_own_config/">how to create your own config</a> guide for more information.</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">crisp_gym &gt;=2.0.0</label><label for="__tabbed_1_2">crisp_gym &lt; 2.0.0</label></div>
 <div class="tabbed-content">
@@ -1057,7 +1073,7 @@ Check the example below.</p>
 <ol>
 <li>Required for now to install LeRobot</li>
 </ol>
-<p>Finally check the config:
+<p>Finally check the config (if using one)
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>scripts/check_config.py
 </span></code></pre></div></p>
 </div>
@@ -1115,8 +1131,8 @@ There are two recording methods currently available:</p>
     With this you can implement custom recording devices to control the recording workflow</p>
 <details class="example">
 <summary>Using the FR3 pilot buttons of Franka Robotics as a recording device</summary>
-<p>In our lab, we use the buttons of the leader robot as a recording device with the <a href="https://github.com/nakama-lab/franka-buttons">franka-buttons</a> repository.
-The following script uses the circle, cross, check and up buttons as a record, delete, save and quit commands respectively:
+<p>In our lab, we use the buttons of the leader robot as a recording device with a for of the <a href="https://github.com/danielsanjosepro/franka_buttons_ros2/tree/main">franka-buttons</a> repository.
+The following script uses the circle, cross, check and up buttons as a record, delete, save and quit commands respectively (this is also part of the repository):
 <div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="sd">&quot;&quot;&quot;Send recording commands for an episode recorder node to start, stop recording, save episodes and quit using the franka pulot buttons.&quot;&quot;&quot;</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
