@@ -46,7 +46,8 @@ PoseBroadcaster::update(const rclcpp::Time &time,
     auto joint_id = model_.getJointId(joint_name);
     auto joint = model_.joints[joint_id];
 
-    q[i] = state_interfaces_[i].get_value();
+    auto q_opt = state_interfaces_[i].get_optional();
+    q[i] = q_opt.value_or(0.0);
     if (continous_joint_types.count(joint.shortname())) {  // Then we are handling a continous joint that is SO(2)
       q_pin[joint.idx_q()] = std::cos(q[i]);
       q_pin[joint.idx_q()+1] = std::sin(q[i]);
@@ -70,10 +71,9 @@ PoseBroadcaster::update(const rclcpp::Time &time,
     should_publish = time_since_last >= min_interval;
   }
 
-  if (should_publish && realtime_pose_publisher_ && realtime_pose_publisher_->trylock())
+  if (should_publish && realtime_pose_publisher_)
   {
-    auto & pose_msg = realtime_pose_publisher_->msg_;
-
+    geometry_msgs::msg::PoseStamped pose_msg;
     pose_msg.header.stamp = time;
     pose_msg.header.frame_id = params_.base_frame;
     pose_msg.pose.position.x = current_pose.translation()[0];
@@ -83,8 +83,10 @@ PoseBroadcaster::update(const rclcpp::Time &time,
     pose_msg.pose.orientation.y = current_quaternion.y();
     pose_msg.pose.orientation.z = current_quaternion.z();
     pose_msg.pose.orientation.w = current_quaternion.w();
-    realtime_pose_publisher_->unlockAndPublish();
-    last_publish_time_ = time;
+    
+    if (realtime_pose_publisher_->try_publish(pose_msg)) {
+      last_publish_time_ = time;
+    }
   }
 
   return controller_interface::return_type::OK;

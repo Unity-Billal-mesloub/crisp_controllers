@@ -48,8 +48,10 @@ TwistBroadcaster::update(const rclcpp::Time &time,
         auto joint_id = model_.getJointId(joint_name);
         auto joint = model_.joints[joint_id];
 
-        q[i] = state_interfaces_[i*2].get_value();
-        q_dot[i] = state_interfaces_[i*2+1].get_value();
+        auto q_opt = state_interfaces_[i*2].get_optional();
+        auto q_dot_opt = state_interfaces_[i*2+1].get_optional();
+        q[i] = q_opt.value_or(0.0);
+        q_dot[i] = q_dot_opt.value_or(0.0);
 
         if (continous_joint_types.count(joint.shortname())) {  // Then we are handling a continous joint that is SO(2)
             q_pin[joint.idx_q()] = std::cos(q[i]);
@@ -74,10 +76,9 @@ TwistBroadcaster::update(const rclcpp::Time &time,
         should_publish = time_since_last >= min_interval;
     }
 
-    if (should_publish && realtime_twist_publisher_ && realtime_twist_publisher_->trylock())
+    if (should_publish && realtime_twist_publisher_)
     {
-        auto & twist_msg = realtime_twist_publisher_->msg_;
-
+        geometry_msgs::msg::TwistStamped twist_msg;
         twist_msg.header.stamp = time;
         twist_msg.header.frame_id = params_.end_effector_frame;
         twist_msg.twist.linear.x = current_velocity.linear()[0];
@@ -86,8 +87,10 @@ TwistBroadcaster::update(const rclcpp::Time &time,
         twist_msg.twist.angular.x = current_velocity.angular()[0];
         twist_msg.twist.angular.y = current_velocity.angular()[1];
         twist_msg.twist.angular.z = current_velocity.angular()[2];
-        realtime_twist_publisher_->unlockAndPublish();
-        last_publish_time_ = time;
+        
+        if (realtime_twist_publisher_->try_publish(twist_msg)) {
+            last_publish_time_ = time;
+        }
     }
 
     return controller_interface::return_type::OK;

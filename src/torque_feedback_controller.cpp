@@ -48,8 +48,10 @@ TorqueFeedbackController::update(const rclcpp::Time & /*time*/,
                                  const rclcpp::Duration & /*period*/) {
   // Update joint states
   for (int i = 0; i < num_joints_; i++) {
-    q_[i] = state_interfaces_[i].get_value();
-    dq_[i] = state_interfaces_[num_joints_ + i].get_value();
+    auto q_opt = state_interfaces_[i].get_optional();
+    auto dq_opt = state_interfaces_[num_joints_ + i].get_optional();
+    q_[i] = q_opt.value_or(0.0);
+    dq_[i] = dq_opt.value_or(0.0);
   }
 
   // Compute forward kinematics and jacobian
@@ -109,7 +111,9 @@ TorqueFeedbackController::update(const rclcpp::Time & /*time*/,
   tau_commanded_ = tau_d + tau_f + tau_nullspace;
 
   for (int i = 0; i < num_joints_; i++) {
-    command_interfaces_[i].set_value(tau_commanded_[i]);
+    if (!command_interfaces_[i].set_value(tau_commanded_[i])) {
+      RCLCPP_WARN(get_node()->get_logger(), "Failed to set command value for joint %d", i);
+    }
   }
 
   params_listener_->refresh_dynamic_parameters();
@@ -248,8 +252,10 @@ CallbackReturn TorqueFeedbackController::on_configure(
 CallbackReturn TorqueFeedbackController::on_activate(
     const rclcpp_lifecycle::State & /*previous_state*/) {
   for (int i = 0; i < num_joints_; i++) {
-    q_[i] = state_interfaces_[i].get_value();
-    dq_[i] = state_interfaces_[num_joints_ + i].get_value();
+    auto q_opt = state_interfaces_[i].get_optional();
+    auto dq_opt = state_interfaces_[num_joints_ + i].get_optional();
+    q_[i] = q_opt.value_or(0.0);
+    dq_[i] = dq_opt.value_or(0.0);
     tau_ext_[i] = 0.0;
     q_init_[i] = q_[i];
   }

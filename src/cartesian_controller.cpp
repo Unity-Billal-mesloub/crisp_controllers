@@ -65,7 +65,8 @@ CartesianController::update(const rclcpp::Time &time,
 
     /*q[i] = exponential_moving_average(q[i], state_interfaces_[i].get_value(),*/
     /*                                  params_.filter.q);*/
-    q[i] = state_interfaces_[i].get_value();
+    auto q_opt = state_interfaces_[i].get_optional();
+    q[i] = q_opt.value_or(0.0);
     if (continous_joint_types.count(
                    joint.shortname())) { // Then we are handling a continous
                                          // joint that is SO(2)
@@ -77,7 +78,8 @@ CartesianController::update(const rclcpp::Time &time,
     /*dq[i] = exponential_moving_average(*/
     /*    dq[i], state_interfaces_[num_joints + i].get_value(),*/
     /*    params_.filter.dq);*/
-    dq[i] = state_interfaces_[num_joints + i].get_value();
+    auto dq_opt = state_interfaces_[num_joints + i].get_optional();
+    dq[i] = dq_opt.value_or(0.0);
   }
 
   if (new_target_pose_) {parse_target_pose_(); new_target_pose_ = false;}
@@ -202,7 +204,9 @@ CartesianController::update(const rclcpp::Time &time,
 
   if (not params_.stop_commands) {
     for (size_t i = 0; i < num_joints; ++i) {
-      command_interfaces_[i].set_value(tau_d[i]);
+      if (!command_interfaces_[i].set_value(tau_d[i])) {
+        RCLCPP_WARN(get_node()->get_logger(), "Failed to set command value for joint %d", i);
+      }
     }
   }
 
@@ -456,7 +460,9 @@ CallbackReturn CartesianController::on_activate(
         model_.getJointId(joint_name); // pinocchio joind id might be different
     auto joint = model_.joints[joint_id];
 
-    q[i] = state_interfaces_[i].get_value();
+    auto q_opt = state_interfaces_[i].get_optional();
+    auto dq_opt = state_interfaces_[num_joints + i].get_optional();
+    q[i] = q_opt.value_or(0.0);
     if (joint.shortname() == "JointModelRZ") { // simple revolute joint case
       q_pin[joint.idx_q()] = q[i];
     } else if (continous_joint_types.count(
@@ -466,10 +472,10 @@ CallbackReturn CartesianController::on_activate(
       q_pin[joint.idx_q() + 1] = std::sin(q[i]);
     }
 
-    q_ref[i] = state_interfaces_[i].get_value();
+    q_ref[i] = q_opt.value_or(0.0);
 
-    dq[i] = state_interfaces_[num_joints + i].get_value();
-    dq_ref[i] = state_interfaces_[num_joints + i].get_value();
+    dq[i] = dq_opt.value_or(0.0);
+    dq_ref[i] = dq_opt.value_or(0.0);
   }
 
   pinocchio::forwardKinematics(model_, data_, q_pin, dq);
