@@ -534,6 +534,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="misc/create_own_config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to bring your own config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -616,7 +639,7 @@
 <p><img src="media/crisp_logo_dark.webp#only-dark" alt="CRISP Controllers Logo"/>
 <img src="media/crisp_logo_light.webp#only-light" alt="CRISP Controllers Logo"/></p>
 <h1 id="crisp-compliant-ros2-controllers-for-learning-based-manipulation-policies">CRISP - <strong>C</strong>ompliant <strong>R</strong>OS2 Controllers for Learn<strong>i</strong>ng-Ba<strong>s</strong>ed Manipulation <strong>P</strong>olicies</h1>
-<p><em>Authors: <a href="https://danielsanjosepro.github.io">Daniel San Jose Pro</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, <a href="https://oliver.hausdoerfer.de/">Oliver Hausdörfer</a><sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, <a href="https://ralfroemer99.github.io">Ralf Römer</a><sup id="fnref3:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, Maximilian Dösch<sup id="fnref4:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, <a href="https://amacati.github.io/">Martin Schuck</a> <sup id="fnref5:1"><a class="footnote-ref" href="#fn:1">1</a></sup> and Angela Schöllig <sup id="fnref6:1"><a class="footnote-ref" href="#fn:1">1</a></sup></em>.</p>
+<p><em>Authors: <a href="https://danielsanjosepro.github.io">Daniel San Jose Pro</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, <a href="https://oliver.hausdoerfer.de/">Oliver Hausdörfer</a><sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, <a href="https://ralfroemer99.github.io">Ralf Römer</a><sup id="fnref3:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, Maximilian Dösch<sup id="fnref4:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, <a href="https://amacati.github.io/">Martin Schuck</a> <sup id="fnref5:1"><a class="footnote-ref" href="#fn:1">1</a></sup> and Angela Schoellig <sup id="fnref6:1"><a class="footnote-ref" href="#fn:1">1</a></sup></em>.</p>
 <blockquote>
 <p>A collection of real-time, C++ controllers for compliant torque-based control for manipulators compatible with <code>ros2_control</code>. Developed for deploying high-level learning-based policies (VLA, Diffusion, ...) and teleoperation on your manipulator. It is compatible with any manipulator offering and effort interface.</p>
 </blockquote>
@@ -699,9 +722,15 @@ Our controllers incorporate friction compensation, joint limit avoidance, and er
 <li>🚫 No MoveIt or complicated path-planning, just a simple C++ <code>ros2_controller</code>. Ready to use.  </li>
 </ul>
 <h2 id="citing">Citing</h2>
-<div class="language-bibtex highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@inproceeding</span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="nl">TODO</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
+<div class="language-bibtex highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">pro2025crispcompliantros2</span><span class="p">,</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{CRISP - Compliant ROS2 Controllers for Learning-Based Manipulation Policies and Teleoperation}</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Daniel San José Pro and Oliver Hausdörfer and Ralf Römer and Maximilian Dösch and Martin Schuck and Angela P. Schöllig}</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{2509.06819}</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.RO}</span><span class="p">,</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="na">url</span><span class="p">=</span><span class="s">{https://arxiv.org/abs/2509.06819}</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
 </span></code></pre></div>
 <div class="footnote">
 <hr />

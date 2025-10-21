@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../multi_machine_setup/">
+        <link rel="prev" href="../new_robot_setup/">
       
-      
-        <link rel="next" href="../new_robot_setup/">
       
       
       <link rel="icon" href="../../images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>ROS2 Diagnostics - CRISP Controllers - Learning Systems Lab</title>
+        <title>How to bring your own config - CRISP Controllers - Learning Systems Lab</title>
       
     
     
@@ -73,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#how-to-create-your-own-config" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -104,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ROS2 Diagnostics
+              How to bring your own config
             
           </span>
         </div>
@@ -422,17 +425,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../diagnostics/" class="md-nav__link">
         
   
   
@@ -443,7 +439,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -476,10 +471,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../create_own_config/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -490,6 +494,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -519,6 +524,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -537,9 +544,42 @@
   
 
 
-  <h1>ROS2 Diagnostics</h1>
-
-<p>ToDo</p>
+<h1 id="how-to-create-your-own-config">How to create your own config</h1>
+<p>You can bring your own config to CRISP, so that you are able to create your own environments, teleoperation setup, controllers...
+1. First create a config folder and give it the following structure (you do not need to add all config folders):</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span>my_crisp_configs
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>├──<span class="w"> </span>envs/
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>my_env1.yaml
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>my_env2.yaml
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span>├──<span class="w"> </span>recording/
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>my_recording_manager.yaml
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span>├──<span class="w"> </span>teleop/
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>my_teleop_setup.yaml
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span>├──<span class="w"> </span>control/
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>my_osc_controller.yaml
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>my_joint_controller.yaml
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>my_cartesian_impedance_controller.yaml
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span>├──<span class="w"> </span>my_gripper_config.yaml
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span>├──<span class="w"> </span>my_second_gripper_config.yaml
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span>├──<span class="w"> </span>my_robot_config.yaml
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span>└──<span class="w"> </span>my_camera_config.yaml
+</span></code></pre></div>
+2. Then add it to your <code>CRISP_CONFIG_PATH</code>:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CRISP_CONFIG_PATH</span><span class="o">=</span>/path/to/my_crisp_configs
+</span></code></pre></div></p>
+<ol>
+<li>Check that the config works.</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>scripts/check_config.py
+</span></code></pre></div>
+<p>This should output your config if it can loaded properly</p>
+<hr />
+<p>Now you can use this to create your own environments:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crisp_gym.manipulator_env</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_env</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">env</span> <span class="o">=</span> <span class="n">make_env</span><span class="p">(</span><span class="n">env_type</span><span class="o">=</span><span class="s2">&quot;my_env1&quot;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s2">&quot;my_robot_namespace_if_required&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Also the record and deploy scripts should be able to find your config now and allow you to load it.</p>
 
 
 
@@ -577,7 +617,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../multi_machine_setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Multi-machine setup">
+          <a href="../new_robot_setup/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Setting up a robot that is not available in the demos">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -587,27 +627,11 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Multi-machine setup
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../new_robot_setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Setting up a robot that is not available in the demos">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
                 Setting up a robot that is not available in the demos
               </div>
             </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
           </a>
+        
         
       </nav>
     
