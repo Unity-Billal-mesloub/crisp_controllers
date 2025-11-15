@@ -545,8 +545,10 @@
 
 
 <h1 id="how-to-create-your-own-config">How to create your own config</h1>
-<p>You can bring your own config to CRISP, so that you are able to create your own environments, teleoperation setup, controllers...
-1. First create a config folder and give it the following structure (you do not need to add all config folders):</p>
+<p>You can bring your own config to CRISP, so that you are able to create your own environments, teleoperation setup, controllers...</p>
+<ol>
+<li>First create a config folder and give it the following structure (you do not need to add all config folders):</li>
+</ol>
 <p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span>my_crisp_configs
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>├──<span class="w"> </span>envs/
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>my_env1.yaml
@@ -570,9 +572,9 @@
 <ol>
 <li>Check that the config works.</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pixi<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>scripts/check_config.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>crisp-check-config<span class="w">  </span><span class="c1"># Do this inside an environment with crisp_py or crisp_gym installed</span>
 </span></code></pre></div>
-<p>This should output your config if it can loaded properly</p>
+<p>This should output your config if it can be loaded properly</p>
 <hr />
 <p>Now you can use this to create your own environments:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crisp_gym.manipulator_env</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_env</span>
