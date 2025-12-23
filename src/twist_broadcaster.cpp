@@ -75,8 +75,7 @@ TwistBroadcaster::update(const rclcpp::Time &time,
 
     if (should_publish && realtime_twist_publisher_)
     {
-        if (realtime_twist_publisher_->trylock()) {
-            auto & twist_msg = realtime_twist_publisher_->msg_;
+        if (realtime_twist_publisher_->try_publish([&](auto & twist_msg) {
             twist_msg.header.stamp = time;
             twist_msg.header.frame_id = params_.end_effector_frame;
             twist_msg.twist.linear.x = current_velocity.linear()[0];
@@ -85,11 +84,10 @@ TwistBroadcaster::update(const rclcpp::Time &time,
             twist_msg.twist.angular.x = current_velocity.angular()[0];
             twist_msg.twist.angular.y = current_velocity.angular()[1];
             twist_msg.twist.angular.z = current_velocity.angular()[2];
-            realtime_twist_publisher_->unlockAndPublish();
-            
+        })) {
             publish_elapsed_ = publish_elapsed_ - publish_interval_;
             // clamp to publish only 1 time even if missed multiple intervals
-            publish_elapsed_ = std::min(publish_elapsed_, publish_interval_);  
+            publish_elapsed_ = std::min(publish_elapsed_, publish_interval_);
         }
     }
 
