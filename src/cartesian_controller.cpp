@@ -205,7 +205,7 @@ CartesianController::update(const rclcpp::Time &time,
   if (not params_.stop_commands) {
     for (size_t i = 0; i < num_joints; ++i) {
       if (!command_interfaces_[i].set_value(tau_d[i])) {
-        RCLCPP_WARN(get_node()->get_logger(), "Failed to set command value for joint %d", i);
+        RCLCPP_WARN(get_node()->get_logger(), "Failed to set command value for joint %zu", i);
       }
     }
   }
