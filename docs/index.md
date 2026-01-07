@@ -33,14 +33,14 @@ Check the [controllers (CRISP controllers) :simple-github:](https://github.com/u
 |:--:|:--:|:--:|
 | *Robot following a moving target, while base joint follows a sine curve* | *Simulated kinova robot with continous joints and nullspace control* | *Simulated iiwa robot* |
 
-| ![franka_eight_reduced](media/franka_eight_reduced.gif)![franka_ns_reduced](media/franka_ns_reduced.gif) | ![vicon](media/franka_teleop.gif)|
-|:--:|:--:|
-| *Real robot following a target and being disturbed (contact) + null space control demonstration*  | *Demonstration using a cartesian controller teleoperated using Vicon tracking system (Speed x4)*| 
-
-| <video src="media/teleoperation.mp4" controls="true" loop="true" autoplay="true" playsinline width="800"> |
-|:--:|
-| Teleoperation setup with activated force-torque feedback |
-
+<!-- | ![franka_eight_reduced](media/franka_eight_reduced.gif)![franka_ns_reduced](media/franka_ns_reduced.gif) | ![vicon](media/franka_teleop.gif)| -->
+<!-- |:--:|:--:| -->
+<!-- | *Real robot following a target and being disturbed (contact) + null space control demonstration*  | *Demonstration using a cartesian controller teleoperated using Vicon tracking system (Speed x4)*|  -->
+<!---->
+<!-- | <video src="media/teleoperation.mp4" controls="true" loop="true" autoplay="true" playsinline width="800"> | -->
+<!-- |:--:| -->
+<!-- | Teleoperation setup with activated force-torque feedback | -->
+<!---->
 
 
 ## Why?
@@ -65,6 +65,8 @@ Designed for fast integration and real-time control, our implementation lowers t
 
 
 ## Citing
+
+You can check our preprint on arXiv: [2509.06819](https://arxiv.org/abs/2509.06819)
 
 ```bibtex
 @misc{pro2025crispcompliantros2,
