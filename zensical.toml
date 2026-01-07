@@ -31,7 +31,7 @@ extra_javascript = [
   "javascripts/carousel.js",
 ]
 
-[theme]
+[project.theme]
 name = "material"
 logo = "images/logo.png"
 favicon = "images/favicon.png"
@@ -50,9 +50,12 @@ features = [
   # "navigation.sections",
   # "navigation.expand",
 ]
+# font.text = "Montserrat"
+font.code = "Geist Mono"
+icon.repo = "fontawesome/brands/github"
 
 # Palette toggle for light mode
-[[theme.palette]]
+[[project.theme.palette]]
 media = "(prefers-color-scheme: light)"
 scheme = "default"
 primary = "teal"
@@ -60,23 +63,12 @@ accent = "deep purple"
 toggle = { icon = "material/brightness-7", name = "Switch to dark mode" }
 
 # Palette toggle for dark mode
-[[theme.palette]]
+[[project.theme.palette]]
 media = "(prefers-color-scheme: dark)"
 scheme = "slate"
 primary = "teal"
 accent = "deep purple"
 toggle = { icon = "material/brightness-4", name = "Switch to light mode" }
-
-[theme.font]
-text = "Geist Mono"
-# text = "Poppins"
-# text = "Montserrat"
-# text = "Tahoma"
-# text = "Roboto"
-code = "Geist Mono"
-
-[theme.icon]
-repo = "fontawesome/brands/github"
 
 plugins = [
   "search",
