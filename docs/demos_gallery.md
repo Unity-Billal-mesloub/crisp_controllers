@@ -36,6 +36,10 @@ Explore our robot demonstrations and visual content through this interactive car
       <img src="../media/robots_transparent.png" alt="Robot Collection">
       <div class="carousel-caption">Compatible Robot Platforms</div>
     </div>
+    <div class="carousel-slide">
+      <video src="../media/pap_demo.mp4" width="800" playsinline muted controls loop autoplay  alt="Robot Collection">
+      <div class="carousel-caption">Pick and Place demo</div>
+    </div>
   </div>
 
   <button class="carousel-btn carousel-btn-prev" aria-label="Previous slide">&lt;</button>
