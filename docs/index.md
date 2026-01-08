@@ -8,10 +8,10 @@ hide:
 <img src="media/crisp_logo_light.webp#only-light" alt="CRISP Controllers Logo"/>
 
 
+
 # CRISP - **C**ompliant **R**OS2 Controllers for Learn**i**ng-Ba**s**ed Manipulation **P**olicies
 
 *Authors: [Daniel San Jose Pro](https://danielsanjosepro.github.io)[^1], [Oliver Hausdörfer](https://oliver.hausdoerfer.de/)[^1], [Ralf Römer](https://ralfroemer99.github.io)[^1], Maximilian Dösch[^1], [Martin Schuck](https://amacati.github.io/) [^1] and Angela Schoellig [^1]*.
-
 [^1]: The authors are with Technical University of Munich, Germany; TUM School of Computation, Information and Technology, Department of Computer Engineering, Learning Systems and Robotics Lab; Munich Institute of Robotics and Machine Intelligence.
 
 > A collection of real-time, C++ controllers for compliant torque-based control for manipulators compatible with `ros2_control`. Developed for deploying high-level learning-based policies (VLA, Diffusion, ...) and teleoperation on your manipulator. It is compatible with any manipulator offering and effort interface.
@@ -23,16 +23,43 @@ Check the [controllers (CRISP controllers) :simple-github:](https://github.com/u
 !!! info "Aloha gripper for Manipulators"
     Check out [aloha4franka](https://tum-lsy.github.io/aloha4franka/) for the gripper used in the videos.
 
+<div>
+  <video src="../media/videos_concatenaded.mp4" width="800" playsinline muted controls loop autoplay  alt="Robot Collection">
+  <div>Pick and Place demo</div>
+</div>
 
-| <video src="media/pap_demo.mp4" playsinline muted controls loop autoplay width="800"/> | <video src="media/policy.mp4" playsinline controls="true" loop="true" autoplay="true" width="800"/> |
-|:--:|:--:|
-| Robot teleoperated using a Follower-Leader system in [CRISP_GYM :simple-github:](https://github.com/utiasDSL/crisp_gym) | Diffusion Policy trained and deployed from the same demonstrations | 
 
+<div class="carousel-container">
+  <div class="carousel">
+    <div class="carousel-slide active">
+      <img src="../media/franka.gif" alt="Franka Robot Demo">
+      <div class="carousel-caption">Franka Robot - Following a moving target while base joint follows a sine curve</div>
+    </div>
+    <div class="carousel-slide">
+      <video src="../media/videos_concatenaded.mp4" width="800" playsinline muted controls loop autoplay  alt="Robot Collection">
+      <div class="carousel-caption">Pick and Place demo</div>
+    </div>
+  </div>
 
-| ![Franka](media/franka.gif) | ![kinova](media/kinova.gif) | ![iiwa](media/iiwa.gif) |
-|:--:|:--:|:--:|
-| *Robot following a moving target, while base joint follows a sine curve* | *Simulated kinova robot with continous joints and nullspace control* | *Simulated iiwa robot* |
+  <button class="carousel-btn carousel-btn-prev" aria-label="Previous slide">&lt;</button>
+  <button class="carousel-btn carousel-btn-next" aria-label="Next slide">&gt;</button>
 
+  <div class="carousel-indicators"></div>
+</div>
+
+<div class="carousel-controls-info">
+  <p><strong>Navigation:</strong> Use arrow keys ← → or click the buttons to navigate through the gallery.</p>
+</div>
+<!---->
+<!-- | <video src="media/pap_demo.mp4" playsinline muted controls loop autoplay width="800"/> | <video src="media/policy.mp4" playsinline controls="true" loop="true" autoplay="true" width="800"/> | -->
+<!-- |:--:|:--:| -->
+<!-- | Robot teleoperated using a Follower-Leader system in [CRISP_GYM :simple-github:](https://github.com/utiasDSL/crisp_gym) | Diffusion Policy trained and deployed from the same demonstrations |  -->
+<!---->
+<!---->
+<!-- | ![Franka](media/franka.gif) | ![kinova](media/kinova.gif) | ![iiwa](media/iiwa.gif) | -->
+<!-- |:--:|:--:|:--:| -->
+<!-- | *Robot following a moving target, while base joint follows a sine curve* | *Simulated kinova robot with continous joints and nullspace control* | *Simulated iiwa robot* | -->
+<!---->
 <!-- | ![franka_eight_reduced](media/franka_eight_reduced.gif)![franka_ns_reduced](media/franka_ns_reduced.gif) | ![vicon](media/franka_teleop.gif)| -->
 <!-- |:--:|:--:| -->
 <!-- | *Real robot following a target and being disturbed (contact) + null space control demonstration*  | *Demonstration using a cartesian controller teleoperated using Vicon tracking system (Speed x4)*|  -->
