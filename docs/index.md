@@ -36,7 +36,7 @@ Check the [controllers (CRISP controllers) :simple-github:](https://github.com/u
       <div class="carousel-caption">End-to-end policies in action performing different contact-rich tasks.</div>
     </div>
     <div class="carousel-slide">
-      <video src="../media/wrist_cam_new.mp4" playsinline muted loop autoplay  alt="Data visualized"></video>
+      <video src="../media/wrist_cam.mp4" playsinline muted loop autoplay  alt="Data visualized"></video>
       <div class="carousel-caption">Recorded Trajectories in LeRobot format for different tasks using CRISP.</div>
     </div>
     <div class="carousel-slide">
