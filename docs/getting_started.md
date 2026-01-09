@@ -12,19 +12,10 @@ Here is an overview of the CRISP framework (please check our paper for details).
 
 - [ ] 1. The first part is the setup for the low-level [crisp_controllers](https://github.com/utiasDSL/crisp_controllers).
 - [ ] 2. Then, you will try moving the robot using [CRISP_PY](https://github.com/utiasDSL/crisp_py) python interface.
-- [ ] 3. Then, you can optionally include additional cameras and other sensors in your setup. 
-- [ ] 4. Finally, you can set up [CRISP_GYM](https://github.com/utiasDSL/crisp_gym) - the Gymnasium interface - and start policy deployment or teleoperation.
+- [ ] 3. Finally, you can set up [CRISP_GYM](https://github.com/utiasDSL/crisp_gym) - the Gymnasium interface - and start policy deployment or teleoperation.
 
 ![Robots](media/robots_transparent.png)
 
-## 1. Getting the low-level C++ [CRISP](https://github.com/utiasDSL/crisp_controllers) controller ready
-
-The computer running the CRISP controller needs a real-time patch for the controller to run smoothly and safely. You can check out the [Franka Robotics guide on how to set up a RT-patch.](https://frankarobotics.github.io/docs/installation_linux.html#setting-up-the-real-time-kernel)
-On newer Ubuntu versions, you can use [Ubuntu Pro](https://ubuntu.com/real-time) for an easy setup.
-
-Then, check if your robot is already included in one of our demos, check [how to run a demo](misc/demos.md) from our [demos repository](https://github.com/utiasDSL/crisp_controllers_demos). You can then follow the instructions there to start your robot(s) using a Docker container. Some of them offer the possibility to run the demos with simulated robots to test the setup.
-
-If your robot is not included in the demos that is not problem. Check out [How to set up a robot that is not available in the demos](misc/new_robot_setup.md). Once you get the controllers running, feel free to open a pull request on our repo to add it to the demos! We highly appreciate that!
 
 ## 2. :snake: Use the python interface [CRISP_PY](https://github.com/utiasDSL/crisp_py) to control the robot
 

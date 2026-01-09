@@ -23,21 +23,37 @@ Check the [controllers (CRISP controllers) :simple-github:](https://github.com/u
 !!! info "Aloha gripper for Manipulators"
     Check out [aloha4franka](https://tum-lsy.github.io/aloha4franka/) for the gripper used in the videos.
 
-<div>
-  <video src="../media/videos_concatenaded.mp4" width="800" playsinline muted controls loop autoplay  alt="Robot Collection">
-  <div>Pick and Place demo</div>
-</div>
-
+<!-- <div> -->
+<!--   <video src="../media/videos_concatenaded.mp4" width="800" playsinline muted controls loop autoplay  alt="Robot Collection"> -->
+<!--   <div>Pick and Place demo</div> -->
+<!-- </div> -->
+<!---->
 
 <div class="carousel-container">
   <div class="carousel">
     <div class="carousel-slide active">
-      <img src="../media/franka.gif" alt="Franka Robot Demo">
-      <div class="carousel-caption">Franka Robot - Following a moving target while base joint follows a sine curve</div>
+      <video src="../media/videos_concatenaded.mp4" playsinline muted loop autoplay  alt="Robot Collection"></video>
+      <div class="carousel-caption">End-to-end policies in action performing different contact-rich tasks.</div>
     </div>
     <div class="carousel-slide">
-      <video src="../media/videos_concatenaded.mp4" width="800" playsinline muted controls loop autoplay  alt="Robot Collection">
-      <div class="carousel-caption">Pick and Place demo</div>
+      <video src="../media/wrist_cam_new.mp4" playsinline muted loop autoplay  alt="Data visualized"></video>
+      <div class="carousel-caption">Recorded Trajectories in LeRobot format for different tasks using CRISP.</div>
+    </div>
+    <div class="carousel-slide">
+      <video src="../media/pap_demo.mp4" playsinline muted loop autoplay  alt="Teleoperation PaP"></video>
+      <div class="carousel-caption">Leader-follower teleoperation for a pick and place task.</div>
+    </div>
+    <div class="carousel-slide">
+      <img src="../media/franka.gif" alt="Franka Robot Demo">
+      <div class="carousel-caption">Controllers: Franka Robot - Following a moving target while base joint follows a sine curve</div>
+    </div>
+    <div class="carousel-slide">
+      <img src="../media/kinova.gif" alt="Kinova Robot Demo">
+      <div class="carousel-caption">Controllers: Kinova Robot - Simulated robot with continuous joints and nullspace control</div>
+    </div>
+    <div class="carousel-slide">
+      <img src="../media/iiwa.gif" alt="IIWA Robot Demo">
+      <div class="carousel-caption">Controllers: IIWA Robot - Impedance control in simulation</div>
     </div>
   </div>
 

@@ -4,10 +4,12 @@ site_name = "CRISP Controllers - Learning Systems Lab"
 nav = [
     {"Home" = "index.md"},
     {"Design Philosophy"= "design_philosophy.md"},
-    {"Getting Started" = "getting_started.md"},
-    {"Getting Started ROS2"= "getting_started_controllers.md"},
-    {"Getting Started Python"= "getting_started_py.md"},
-    {"Getting Started Gym"= "getting_started_gym.md"},
+    {"Getting Started" = [
+        {"Getting Started" = "getting_started.md"},
+        {"Getting Started ROS2" = "getting_started_controllers.md"},
+        {"Getting Started Python" = "getting_started_py.md"},
+        {"Getting Started Gym" = "getting_started_gym.md"},
+    ]},
     {"Examples Camera"= "examples_camera.md"},
     {"Examples Gripper"= "examples_gripper.md"},
     {"Examples Robot"= "examples_robot.md"},
@@ -48,7 +50,7 @@ features = [
   "navigation.instant.progress",
   "navigation.top",
   # "navigation.sections",
-  # "navigation.expand",
+  "navigation.expand",
 ]
 # font.text = "Montserrat"
 font.code = "Geist Mono"
