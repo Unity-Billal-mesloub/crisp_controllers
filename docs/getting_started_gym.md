@@ -1,7 +1,6 @@
-## 4. Getting started with [CRISP_GYM](https://github.com/utiasDSL/crisp_gym)
+## Install the gym
 
-Similar to `CRISP_PY`, we recommend using `pixi` to install `CRISP_GYM`.
-
+First, clone the repository:
 ```sh
 git clone https://github.com/utiasDSL/crisp_gym
 cd crisp_gym
@@ -12,54 +11,36 @@ The script will not be tracked by git.
 In this script you need to add a environment variables:
 
 - `ROS_DOMAIN_ID` **(Required)**: which is used to define nodes that should be able to see each other. In our [demos](misc/demos.md) they are set to 100 as default.
-- `CRISP_CONFIG_PATH` **(Optional)**: which should be the path to a config folder similar to [config path of CRISP_PY](https://github.com/utiasDSL/crisp_py/tree/main/config). 
+- `CRISP_CONFIG_PATH` **(Optional)**: which should be the path to a config folder similar to [config path of CRISP_PY](https://github.com/utiasDSL/crisp_py/tree/main/config) or [config path of CRISP_GYM](https://github.com/utiasDSL/crisp_gym/tree/main/crisp_gym/config) but with your own custom configurations.
     If this environment variable is unset, the default configurations will be used.
     Check [how to create your own config](misc/create_own_config.md) guide for more information.
 
 
-=== "crisp_gym >=2.0.0"
-
-    ```sh title="scripts/set_env.sh" hl_lines="2"
-    export GIT_LFS_SKIP_SMUDGE=1  # (1)!
-    export ROS_DOMAIN_ID=100
-    export CRISP_CONFIG_PATH=/path/to/config1/folder:/path/to/config2/folder  # optional
-    ```
-
-    1. Required for now to install LeRobot
-
-    Finally check the config (if using one)
-    ```bash
-    pixi run python scripts/check_config.py
-    ```
-
-
-=== "crisp_gym < 2.0.0"
-
-    ```sh title="scripts/set_env.sh" hl_lines="2"
-    export GIT_LFS_SKIP_SMUDGE=1  # (1)!
-    export ROS_DOMAIN_ID=100
-    export CRISP_CONFIG_PATH=/path/to/config/folder  # optional
-    ```
-
-    1. Required for now to install LeRobot
-
-If you want to work in a multi-machine setup (e.g. policy runs in a different machine as controllers), then check [how to setup multi-machine in ROS2](misc/multi_machine_setup.md).
-
-
-```sh
-source scripts/configure.sh  # (1)!
-pixi install
-pixi shell -e humble-lerobot
-python -c "import crisp_gym"
-
+```sh title="scripts/set_env.sh" hl_lines="3"
+export GIT_LFS_SKIP_SMUDGE=1  # (1)!
+export SVT_LOG=1  # (2)!
+export ROS_DOMAIN_ID=100
+export CRISP_CONFIG_PATH=/path/to/config1/folder:/path/to/config2/folder  # optional
 ```
 
-1. This will set some environment variable pre-installation as well as checking that you defined the previous script properly.
+1. This will avoid downloading large files when cloning the repository. You can always download them later with `git lfs pull`.
+2. This will remove logging from SVT codecs, which are used to create data in LeRobot format. The logs can be quite verbose.
+
+If you want to work in a *multi-machine setup* (e.g. policy runs in a different machine as controllers/cameras), then check [how to setup multi-machine in ROS2](misc/multi_machine_setup.md).
+
+---
+Now we can install the environment:
+
+```sh
+GIT_LFS_SKIP_SMUDGE=1 pixi install -e humble-lerobot
+pixi shell -e humble-lerobot
+python -c "import crisp_gym"
+```
 
 You can also check that your configs are set up with:
 
 ```sh
-pixi shell crisp-check-config
+pixi run -e humble-lerobot crisp-check-config
 ```
 
 If the previous steps worked, then you are good to go.
@@ -186,20 +167,20 @@ You can use LeRobot train scripts to train a policy simply by running:
 pixi run -e lerobot python -m lerobot.scripts.lerobot-train \
           --dataset.repo_id=<your_account>/<repo_name> \
           --policy.type=diffusion \
-          --policy.push_to_hub=false
+          --policy.num_inference_steps=10
 ```
 
 !!! warning
     LeRobot is subject to frequent changes. This command might change in future versions.
 
-They provide the latest implementations of most VLA.
+They provide the latest implementations of most major SOTA models in pytorch.
 Check [LeRobot](https://github.com/huggingface/lerobot) for more information.
 
 ### Deploy policy
 
 After training with LeRobot, you can deploy the policy with:
 ```sh
-pixi run -e humble-lerobot crisp-deploy-policy  # (1)!
+pixi run -e humble-lerobot crisp-deploy-policy  --policy # (1)!
 ```
 
 1. The script will interactively allow you to choose a model inside `outputs/train`. If you want to explicitly pass a path you can override it with `--path`

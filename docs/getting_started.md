@@ -6,8 +6,8 @@
 
 Here is an overview of the CRISP framework (please check our paper for details).
 
-![Stack overview](media/crisp_overview.png#only-light)
-![Stack overview](media/crisp_overview_dark.png#only-dark)
+<!-- ![Stack overview](media/crisp_overview.png#only-light) -->
+<!-- ![Stack overview](media/crisp_overview.png#only-dark) -->
 
 
 - [ ] 1. The first part is the setup for the low-level [crisp_controllers](https://github.com/utiasDSL/crisp_controllers).
