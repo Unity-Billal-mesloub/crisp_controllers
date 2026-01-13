@@ -40,6 +40,10 @@ Check the [controllers (CRISP controllers) :simple-github:](https://github.com/u
       <div class="carousel-caption">Recorded Trajectories in LeRobot format for different tasks using CRISP.</div>
     </div>
     <div class="carousel-slide">
+      <video src="../media/viser_visualization.mp4" playsinline muted loop autoplay  alt="Viser"></video>
+      <div class="carousel-caption">Provided example with 1x video of the tracking capabilities of the controller.</div>
+    </div>
+    <div class="carousel-slide">
       <video src="../media/pap_demo.mp4" playsinline muted loop autoplay  alt="Teleoperation PaP"></video>
       <div class="carousel-caption">Leader-follower teleoperation for a pick and place task.</div>
     </div>
