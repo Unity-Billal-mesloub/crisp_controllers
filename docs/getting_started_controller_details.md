@@ -23,15 +23,15 @@ where:
 -  \( \boldsymbol{\tau} \)  is the vector of joint torques to be applied,
 -  \( \mathbf{K}_p \)  is the diagonal matrix of proportional gains,
 -  \( \mathbf{K}_d \)  is the diagonal matrix of derivative gains,
--  \( \mathbf{e} = \mathbf{q}_\text{desired} - \mathbf{q}_\text{current} \)  is the position error,
--  \( \mathbf{\dot{e}} = \mathbf{\dot{q}}_\text{desired} - \mathbf{\dot{q}}_\text{current} \)  is the velocity error, usually only \(-\mathbf{\dot{q}}_\text{current}\) is considered, as the desired velocity is often not set. This term acts as a damping term to slow down the motion.
+-  \( \mathbf{e} = \mathbf{q}_\text{target} - \mathbf{q}_\text{current} \)  is the position error,
+-  \( \mathbf{\dot{e}} = \mathbf{\dot{q}}_\text{target} - \mathbf{\dot{q}}_\text{current} \)  is the velocity error, usually only \(-\mathbf{\dot{q}}_\text{current}\) is considered, as the desired velocity is often not set. This term acts as a damping term to slow down the motion.
 
 ## Cartesian control
 
 For Cartesian Impedance control, we imagine a virtual spring-damper system between the current end-effector pose and the desired target pose.
 The desired torque command $\boldsymbol{\tau}_\text{cmd}$ is computed by first calculating the desired force/torque at the end-effector $\mathcal{F}_\text{desired}$ as
 
-$$ \boldsymbol{\tau}_\text{cmd} = \mathbf{J}^\top \mathcal{F}_\text{desired} + \boldsymbol{\tau}_\text{nullspace}$$
+$$ \boldsymbol{\tau}_\text{cmd} = \mathbf{J}^\top \mathcal{F}_\text{target} + \boldsymbol{\tau}_\text{nullspace}$$
 
 where:
 
@@ -41,7 +41,7 @@ where:
 ### Desired end-effector force/torque
 In our case the desired end-effector force/torque is computed using a PD controller in Cartesian space:
 
-$$ \mathcal{F}_\text{desired} = \mathbf{K}_p (\mathbf{X}_\text{target}\ominus\mathbf{X}_\text{current}) - \mathbf{K}_d \mathbf{J}^\top \mathbf{\dot{q}} $$
+$$ \mathcal{F}_\text{desired} = \mathbf{K}_p (\mathbf{X}_\text{target}\ominus\mathbf{X}_\text{current}) - \mathbf{K}_d \mathbf{J} \mathbf{\dot{q}}_\text{current} $$
 
 where:
 
@@ -55,10 +55,11 @@ where:
 The nullspace torque term allows us to regulate the joint positions while controlling the end-effector in Cartesian space.
 In our implementation, it simply follows a PD control law to drive the joints towards a desired nullspace position:
 
-$$ \boldsymbol{\tau}_\text{nullspace} = \mathbf{K}_{p,\text{ns}} \mathbf{e}_\text{ns} - \mathbf{K}_{d,\text{ns}} \mathbf{\dot{q}} $$
+$$ \boldsymbol{\tau}_\text{nullspace} = \mathbf{N} ( \mathbf{K}_{p,\text{ns}} \mathbf{e}_\text{ns} - \mathbf{K}_{d,\text{ns}} \mathbf{\dot{q}} )$$
 
 where:
 
+- \( \mathbf{N} = \mathbf{I - P} \) is the nullspace projection.
 - \( \mathbf{K}_{p,\text{ns}} \) is the diagonal matrix of nullspace proportional gains.
 - \( \mathbf{K}_{d,\text{ns}} \) is the diagonal matrix of nullspace derivative gains.
 - \( \mathbf{e}_\text{ns} = \mathbf{q}_\text{ns,desired} - \mathbf{q}_\text{current} \) is the nullspace position error.

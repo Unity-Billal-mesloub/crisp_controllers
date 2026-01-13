@@ -87,9 +87,6 @@ plugins = [
   # "mkdoxy",
 ]
 
-[project.markdown_extensions.pymdownx.arithmatex]
-generic = true
-
 [extra]
 [[extra.social]]
 icon = "fontawesome/brands/github"
@@ -119,3 +116,6 @@ markdown_extensions = [
 
 [[markdown_extensions]]
 "pymdownx.tasklist" = { custom_checkbox = true, clickable_checkbox = true }
+
+[[markdown_extensions]]
+"pydownx.arithmatex" = { generic = true }
