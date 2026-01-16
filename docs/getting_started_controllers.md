@@ -32,12 +32,15 @@ We also have some examples with cameras.
 
 ## Pixi container demos
 
-Robots:
+### Robots
+
 - FR3: https://github.com/danielsanjosepro/pixi_franka_ros2
 - FER: https://github.com/danielsanjosepro/orbec_container_ros2
 
-Cameras:
+### Cameras
+
 - usb_cam: https://github.com/danielsanjosepro/pixi_usbcam_ros2
 
-Sensors:
+### Sensors
+
 - Anyskin: https://github.com/danielsanjosepro/anyskin_ros2
