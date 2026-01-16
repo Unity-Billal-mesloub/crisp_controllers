@@ -59,7 +59,7 @@ $$ \boldsymbol{\tau}_\text{nullspace} = \mathbf{N} ( \mathbf{K}_{p,\text{ns}} \m
 
 where:
 
-- \( \mathbf{N} = \mathbf{I - P} \) is the nullspace projection.
+- \( \mathbf{N} \) is the nullspace projector.
 - \( \mathbf{K}_{p,\text{ns}} \) is the diagonal matrix of nullspace proportional gains.
 - \( \mathbf{K}_{d,\text{ns}} \) is the diagonal matrix of nullspace derivative gains.
 - \( \mathbf{e}_\text{ns} = \mathbf{q}_\text{ns,desired} - \mathbf{q}_\text{current} \) is the nullspace position error.

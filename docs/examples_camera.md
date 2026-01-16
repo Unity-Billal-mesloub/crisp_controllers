@@ -2,14 +2,13 @@
 
 ### Cameras
 
-To add a camera, you will need to run it in a separate container as well.
 The cameras that we tested are:
 
 - Any usb camera or webcam using the [ROS2 usb-cam](https://github.com/ros-drivers/usb_cam) package,
 - [Real Sense](https://github.com/IntelRealSense/realsense-ros/tree/ros2-master) which gives amazing ROS2 support,
 - and [Orbbec](https://github.com/orbbec/OrbbecSDK_ROS2).
 
-Check the [demos](misc/demos.md) to see some examples with cameras
+Check the [getting ros2 side ready guide](getting_started_controllers.md) to see some examples with cameras
 
 ??? example "Example camera usage:"
     ```py
@@ -36,14 +35,6 @@ Check the [demos](misc/demos.md) to see some examples with cameras
     3. You can also pass `namespace="..."` to give the camera a namespace. This is required for a bimanual setup.
     4. Make sure that we received an image. This will fail with a timeout if the topic is wrong or the camera is not publishing.
     5. This will show you the latest received image!
-
-
-## Run a camera as a container
-
-To run a camera as a container, use the following command:
-```bash
-docker compose run 
-```
 
 ## Run a camera with `pixi/robostack`
 Here is an example of setting up and running the `usb_cam` ROS2 node using `pixi` and `robostack`.

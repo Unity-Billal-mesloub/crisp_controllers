@@ -7,14 +7,14 @@ You might want to try Zenoh in that case, which uses a router for node discovery
 
 ### In the host machine (where controllers run)
 
-To use the demos with `cyclone` as a middleware, pass the following environment variable to the services:
+To use the [demos repository](https://github.com/utiasDSL/crisp_controllers_demos) with `cyclone` as a middleware, pass the following environment variable to the services:
 ```bash
 RMW=cyclone ROS_NETWORK_INTERFACE=enpXXXXXX docker compose up ...  # (1)!
 ```
 
 1. Modify this with your network interface: check `ip addr` on your shell. Otherwise it will just use `lo` as default.
 
-If you are using a custom robot, check the `setup_cyclone.sh` script to see how it is being configured.
+If you are using a custom robot or `pixi` installed robot, check the `setup_cyclone.sh` script to see how it is being configured.
 
 ### In the remote machine (where the learning policy runs)
 

@@ -12,6 +12,7 @@ nav = [
         {"Custom Configs" = "getting_started_config.md"},
         {"Multi-Machine Setup" = "getting_started_multiple_machines.md"},
         {"Low-Level Controller Details" = "getting_started_controller_details.md"},
+        {"How to setup a new robot"= "new_robot_setup.md"}
     ]},
     {"Examples" = [
        {"Examples Camera"= "examples_camera.md"},
@@ -19,15 +20,15 @@ nav = [
        {"Examples Robot"= "examples_robot.md"},
        {"Examples Sensor"= "examples_sensor.md"},
     ]},
-    { "Deprecated" = [
-      {"Available Controllers and Broadcasters" = "deprecated/controllers.md"},
-      {"Demos" = "deprecated/demos.md"},
-      {"How to calibrate a gripper" = "deprecated/calibrate_gripper.md"},
-      {"Multi-machine setup" = "deprecated/multi_machine_setup.md"},
-      {"ROS2 Diagnostics" = "deprecated/diagnostics.md"},
-      {"Setting up a robot that is not available in the demos" = "deprecated/new_robot_setup.md"},
-      {"How to bring your own config" = "deprecated/create_own_config.md"},
-    ]},
+    # { "Deprecated" = [
+    #   {"Available Controllers and Broadcasters" = "deprecated/controllers.md"},
+    #   {"Demos" = "deprecated/demos.md"},
+    #   {"How to calibrate a gripper" = "deprecated/calibrate_gripper.md"},
+    #   {"Multi-machine setup" = "deprecated/multi_machine_setup.md"},
+    #   {"ROS2 Diagnostics" = "deprecated/diagnostics.md"},
+    #   {"Setting up a robot that is not available in the demos" = "deprecated/new_robot_setup.md"},
+    #   {"How to bring your own config" = "deprecated/create_own_config.md"},
+    # ]},
 ]
 repo_url = "https://github.com/utiasDSL/crisp_controllers"
 extra_css = [
