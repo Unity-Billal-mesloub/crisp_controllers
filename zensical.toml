@@ -15,10 +15,11 @@ nav = [
         {"How to setup a new robot"= "new_robot_setup.md"}
     ]},
     {"Examples" = [
+       {"Examples Robot"= "examples_robot.md"},
        {"Examples Camera"= "examples_camera.md"},
        {"Examples Gripper"= "examples_gripper.md"},
-       {"Examples Robot"= "examples_robot.md"},
        {"Examples Sensor"= "examples_sensor.md"},
+       {"Example Full Environment"= "examples_sensor.md"},  # TODO: change link
     ]},
     # { "Deprecated" = [
     #   {"Available Controllers and Broadcasters" = "deprecated/controllers.md"},

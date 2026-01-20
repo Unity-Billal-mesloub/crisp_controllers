@@ -76,5 +76,5 @@ We also add extra terms that can be add/enabled to the controllers so the final 
 
 $$ \boldsymbol{\tau}_\text{final} = \text{safety}(\boldsymbol{\tau} + \boldsymbol{\tau}_\text{extra}) $$
 
-where `safety(...)` clamps the torques to the allowed limits and `\boldsymbol{\tau}_\text{extra}` can include friction compensation, gravity compensation (if not already included by the robot hardware interface), coriolis compensation, and joint limit avoidance torques...
+where $\text{safety}(...)$ clamps the torques to the allowed limits and $\boldsymbol{\tau}_\text{extra}$ can include friction compensation, gravity compensation (if not already included by the robot hardware interface), coriolis compensation, and joint limit avoidance torques...
 
