@@ -30,7 +30,7 @@ Grippers that we tested are:
 
 - **Franka Hand**: a node is included in the [fr3 pixi](https://github.com/danielsanjosepro/pixi_franka_ros2) and [panda pixi](https://github.com/lvjonok/pixi_panda_ros2) repositories which is started automatically with the robot. If the Franka Hand is not connected, the node will crash silently. Checkout [this config](https://github.com/utiasDSL/crisp_py/blob/main/crisp_py/config/grippers/gripper_franka.yaml) for using it with `crisp_py`.
 - Any **Dynamixel**-based gripper: https://github.com/danielsanjosepro/dynamixel_wrapper - check README.md
-- **Robotiq 2F-85**: work in progres...
+- **Robotiq 2F-85**: work in progress...
 
 ### Cameras
 
@@ -48,7 +48,7 @@ Sensors that we tested are:
 
 ## Start ROS2 nodes with docker containers
 
-We preovide ready-to-use docker container demos for different manipulators and cameras (as an alternative to `pixi`).
+We provide ready-to-use docker container demos for different manipulators and cameras (as an alternative to `pixi`).
 New demos are welcome, in particular if tested with real hardware.
 Some other manipulators that could be added to this list is [Duatic](https://github.com/Duatic/dynaarm_driver), [Universal Robots](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver) or other dual setups.
 
@@ -67,7 +67,7 @@ We also have some examples with cameras.
 | :--- | :---: | :---: | :---: |
 | Camera demo | ✅ | ✅ |  ✅[^2] | 
 
-[^2]: Available container at: https://github.com/danielsanjosepro/orbec_container_ros2
+[^2]: Available container at: https://github.com/danielsanjosepro/orbecc_container_ros2
 
 ### How to
 

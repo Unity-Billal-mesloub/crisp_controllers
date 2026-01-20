@@ -19,7 +19,7 @@ nav = [
        {"Examples Camera"= "examples_camera.md"},
        {"Examples Gripper"= "examples_gripper.md"},
        {"Examples Sensor"= "examples_sensor.md"},
-       {"Example Full Environment"= "examples_sensor.md"},  # TODO: change link
+       {"Example Full Environment"= "examples_full_environment.md"},
     ]},
     # { "Deprecated" = [
     #   {"Available Controllers and Broadcasters" = "deprecated/controllers.md"},

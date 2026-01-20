@@ -1,4 +1,4 @@
-## Install the gym
+# Get started with `crisp_gym`
 
 First, clone the repository:
 ```sh
@@ -10,10 +10,10 @@ Create a file `scripts/set_env.sh` which will be sourced every time that you run
 The script will not be tracked by git.
 In this script you need to add a environment variables:
 
-- `ROS_DOMAIN_ID` **(Required)**: which is used to define nodes that should be able to see each other. In our [demos](misc/demos.md) they are set to 100 as default.
+- `ROS_DOMAIN_ID` **(Required)**: which is used to define nodes that should be able to see each other. In our [ROS2 nodes](getting_started_controllers.md) they are set to 100 as default.
 - `CRISP_CONFIG_PATH` **(Optional)**: which should be the path to a config folder similar to [config path of CRISP_PY](https://github.com/utiasDSL/crisp_py/tree/main/config) or [config path of CRISP_GYM](https://github.com/utiasDSL/crisp_gym/tree/main/crisp_gym/config) but with your own custom configurations.
     If this environment variable is unset, the default configurations will be used.
-    Check [how to create your own config](misc/create_own_config.md) guide for more information.
+    Check [how to create your own config](getting_started_config.md) guide for more information.
 
 
 ```sh title="scripts/set_env.sh" hl_lines="3"
@@ -26,7 +26,7 @@ export CRISP_CONFIG_PATH=/path/to/config1/folder:/path/to/config2/folder  # opti
 1. This will avoid downloading large files when cloning the repository. You can always download them later with `git lfs pull`.
 2. This will remove logging from SVT codecs, which are used to create data in LeRobot format. The logs can be quite verbose.
 
-If you want to work in a *multi-machine setup* (e.g. policy runs in a different machine as controllers/cameras), then check [how to setup multi-machine in ROS2](misc/multi_machine_setup.md).
+If you want to work in a *multi-machine setup* (e.g. policy runs in a different machine as controllers/cameras), then check [how to setup multi-machine in ROS2](getting_started_multiple_machines.md).
 
 ---
 Now we can install the environment:
@@ -73,16 +73,16 @@ There are two recording methods currently available:
 - `keyboard` (default): It allows you to record episodes using the keyboard with the keys 
     - __r__(ecord start/stop) an episode,
     - __d__(elete episode) after recording a failed episode,
-    - __s__(ave episode) after recording a succesful episode,
+    - __s__(ave episode) after recording a successful episode,
     - __q__(uit) after finishing.
 - `ros`: It uses the topic `recording_state` to catch `String` ROS2 messages to follow the same recording workflow as the keyboard. 
     With this you can implement custom recording devices to control the recording workflow
 
     ??? example "Using the FR3 pilot buttons of Franka Robotics as a recording device"
-        In our lab, we use the buttons of the leader robot as a recording device with a for of the [franka-buttons](https://github.com/danielsanjosepro/franka_buttons_ros2/tree/main) repository.
+        In our lab, we use the buttons of the leader robot as a recording device with a fork of the [franka-buttons](https://github.com/danielsanjosepro/franka_buttons_ros2/tree/main) repository.
         The following script uses the circle, cross, check and up buttons as a record, delete, save and quit commands respectively (this is also part of the repository):
         ```py
-        """Send recording commands for an episode recorder node to start, stop recording, save episodes and quit using the franka pulot buttons."""
+        """Send recording commands for an episode recorder node to start, stop recording, save episodes and quit using the franka pilot buttons."""
         import rclpy
         from rclpy.node import Node
 

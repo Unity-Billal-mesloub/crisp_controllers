@@ -2,7 +2,7 @@
 
 !!! Info
     If anything in the guide seems unclear to you, do not hesitate to open an issue or start discussion in our repositories.
-    Our goal is to demistify robotics, not make it harder.
+    Our goal is to demystify robotics, not make it harder.
 
 Here is an overview of the CRISP framework (please check our paper for details).
 

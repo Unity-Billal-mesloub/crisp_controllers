@@ -7,7 +7,7 @@ This page provides a simple example on how to use grippers with `crisp_py`.
 We first start a gripper node that 
 
 - Publishes gripper the value of the gripper `JointState`, where the position value range should be known for further configuration,
-- Listens to commands of type `Float32` with the same range as the joint state vallues to open/close the gripper,
+- Listens to commands of type `Float32` with the same range as the joint state values to open/close the gripper,
 - Optionally, a service to disable the torque of the gripper motors.
 
 Check the [getting ros2 side ready guide](getting_started_controllers.md) to see the examples with grippers.
@@ -19,7 +19,7 @@ For...
 
 ## Access Gripper from `crisp_py`
 
-For simple binary control of the gripper (open/close), you can use the `Gripper` class from `crisp_py` or the `make_gripper` factory function if you defined the gripper in a YAML configuration file (see [config guide](getting_started_configuration.md) for more information).
+For simple binary control of the gripper (open/close), you can use the `Gripper` class from `crisp_py` or the `make_gripper` factory function if you defined the gripper in a YAML configuration file (see [config guide](getting_started_config.md) for more information).
 ```python
 """Simple example to control the gripper."""
 import time

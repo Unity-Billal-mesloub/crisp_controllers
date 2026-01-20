@@ -2,7 +2,7 @@
 
 !!! info "Setup a robot with `pixi` and share it with the community!"
     Checkout pixi setups for the FR3 and FER with crisp: https://github.com/danielsanjosepro/pixi_franka_ros2 and https://github.com/lvjonok/pixi_panda_ros2.
-    This is our prefered way to control the robot.
+    This is our preferred way to control the robot.
 
 For ROS2 users, adding our controllers to their stack should be straightforward as it works like any other ROS2 controller.
 For novice ROS2 users, we prepared a more detailed guide to make sure that you get your robot ready:
@@ -14,7 +14,7 @@ Otherwise, you might need to use [cartesian_controllers](https://github.com/fzi-
 
 1. Install the ROS2 drivers on your computer. 
 We recommend to work in a devcontainer to avoid installing ROS2 directly in your machine.
-You can check the [demos](https://github.com/utiasDLS/crisp_controllers_demos) for inspiration.
+You can check the [demos](https://github.com/utiasDSL/crisp_controllers_demos) for inspiration.
 
 3. Add the [controllers](https://github.com/utiasDSL/crisp_controllers) to your src folder where the ROS2 drivers for your robot have been installed:
     ```bash
@@ -36,7 +36,7 @@ You can check the [demos](https://github.com/utiasDLS/crisp_controllers_demos) f
 4. Now, you will need to add the controller to the config file of the controller_manager.
 Usually, you will find this config file in the bringup package where the launch files are located (called `<robotname>_bringup`) and are saved as `controllers.yaml`.
 Check out the [FR3 config](https://github.com/utiasDSL/crisp_controllers_demos/blob/main/crisp_controllers_robot_demos/config/fr3/controllers.yaml) to get an idea how the config file looks like.
-For more information on the controllers, check the [available controllers and broadcaster](controllers.md) page.
+For more information on the controllers, check the [controllers details](getting_started_controller_details.md) page.
 
     ??? example "How to add the configuration to the config file"
 

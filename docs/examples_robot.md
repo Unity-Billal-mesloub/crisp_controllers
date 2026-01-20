@@ -54,9 +54,9 @@ print(robot.end_effector_pose)
 print(robot.joint_values)
 
 # %% Activate cartesian impedance controller
-left_arm.controller_switcher_client.switch_controller("cartesian_impedance_controller")
+robot.controller_switcher_client.switch_controller("cartesian_impedance_controller")
 # Optionally, load custom parameters for the cartesian controller
-left_arm.cartesian_controller_parameters_client.load_param_config(
+robot.cartesian_controller_parameters_client.load_param_config(
     file_path="..."
 )
 
@@ -116,9 +116,6 @@ def _(_):
 @show_collision_meshes_cb.on_update
 def _(_):
     viser_urdf.show_collision = show_collision_meshes_cb.value
-
-show_meshes_cb.visible = load_meshes
-show_collision_meshes_cb.visible = load_collision_meshes
 
 config_with_gripper = np.array([*robot.joint_values, 0.0])
 viser_urdf.update_cfg(config_with_gripper)

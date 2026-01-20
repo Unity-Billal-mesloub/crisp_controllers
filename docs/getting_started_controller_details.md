@@ -9,7 +9,7 @@
     </div>
 </div>
 
-The low-level controllers are torque-based controllers that that a `target_pose` or `target_joint` as input and compute the required torques to move the robot to that target.
+The low-level controllers are torque-based controllers that take a `target_pose` or `target_joint` as input and compute the required torques to move the robot to that target.
 
 ## Joint control
 

@@ -46,7 +46,7 @@ Enter in the humble shell with `pixi shell -e humble` and if your robot is activ
 
 > Zenoh /zeno/ is a pub/sub/query protocol unifying data in motion, data at rest and computations - from [Zenoh's website](https://zenoh.io/).
 
-[rmw_zenoh](https://github.com/ros2/rmw_zenoh) is a ROS middleware to use Zenoh as a the pub/sub communication instead of DDS developed by Intrinsic.
+[rmw_zenoh](https://github.com/ros2/rmw_zenoh) is a ROS middleware to use Zenoh as the pub/sub communication instead of DDS developed by Intrinsic.
 To learn more about Zenoh, check their website and learn about the Zenoh middleware in their repository.
 
 What's important for us to know is that a router is required for discovery similar to how roscore worked in ROS1.
@@ -87,11 +87,11 @@ In this part, we assume that you already installed the [CRISP_PY or CRISP_GYM](.
     ```
 
     1. Check the [getting started](../getting_started.md) to see why we set this.
-    2. __TODO__: modify this to use the IP address 
+    2. __TODO__: modify this to use the IP address
     3. The communication daemon needs to be restarted to account for the changes.
 
-    3. Finally, check that everything is working. 
-    Enter in the humble shell with `pixi shell -e humble` and if your robot is active, run `ros2 topic list` and you should see some topics listed!
+3. Finally, check that everything is working.
+Enter in the humble shell with `pixi shell -e humble` and if your robot is active, run `ros2 topic list` and you should see some topics listed!
 
 ## Troubleshooting
 

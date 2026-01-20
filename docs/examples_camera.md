@@ -61,7 +61,7 @@ camera_color_image_topic: "/image_raw"
 camera_color_info_topic: "/image_raw/camera_info"
 ```
 
-Then load the configuration and use the `make_camera` factory method (assuming that you added the config path to the `CRISP_CONFIG_PATH` environment variable as described in the [configuration guide](getting_started_configuration.md)):
+Then load the configuration and use the `make_camera` factory method (assuming that you added the config path to the `CRISP_CONFIG_PATH` environment variable as described in the [configuration guide](getting_started_config.md)):
 
 ```python
 """Example showing how to load camera configuration from a YAML file."""
