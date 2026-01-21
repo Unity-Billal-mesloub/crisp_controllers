@@ -14,11 +14,16 @@ hide:
 *Authors: [Daniel San Jose Pro](https://danielsanjosepro.github.io)[^1], [Oliver Hausdörfer](https://oliver.hausdoerfer.de/)[^1], [Ralf Römer](https://ralfroemer99.github.io)[^1], Maximilian Dösch[^1], [Martin Schuck](https://amacati.github.io/) [^1] and Angela Schoellig [^1]*.
 [^1]: The authors are with Technical University of Munich, Germany; TUM School of Computation, Information and Technology, Department of Computer Engineering, Learning Systems and Robotics Lab; Munich Institute of Robotics and Machine Intelligence.
 
-> A collection of real-time, C++ controllers for compliant torque-based control for manipulators compatible with `ros2_control`. Developed for deploying high-level learning-based policies (VLA, Diffusion, ...) and teleoperation on your manipulator. It is compatible with any manipulator offering an effort interface.
+You want to deploy your learning-based policy to your manipulator, or collect teleoperation data? `CRISP` provides the tools for that.
+
+- `CRISP` provides the `ros2_control` low-level controllers (compliant, real-time, C++, torque-based) and simple python interfaces `CRISP_PY` to interface with them. It is compatible with any manipulator offering an joint-level torque effort interface.
+
+- `CRISP` provides also a Gymnasium environment `CRISP_GYM` to deploy learning-based `LeRobot` policies and collect data in `LeRobotDataset` format.
 
 _If you use this work, please cite it using the [bibtex](#citing) below._
 
-Check the [controllers (CRISP controllers) :simple-github:](https://github.com/utiasDSL/crisp_controllers) , robot [demos (CRISP controllers demos) :simple-github:](https://github.com/utiasDSL/crisp_controllers_demos), a simple [python interface (CRISP_PY) :simple-github:](https://github.com/utiasDSL/crisp_py), and a [Gymnasium wrapper (CRISP_GYM) :simple-github:](https://github.com/utiasDSL/crisp_gym) for real-world experiments.
+Check the [controllers (CRISP controllers) :simple-github:](https://github.com/utiasDSL/crisp_controllers), the simple [python interface (CRISP_PY) :simple-github:](https://github.com/utiasDSL/crisp_py), and a [Gymnasium wrapper (CRISP_GYM) :simple-github:](https://github.com/utiasDSL/crisp_gym) for real-world experiments.
+
 
 !!! info "Aloha gripper for Manipulators"
     Check out [aloha4franka](https://tum-lsy.github.io/aloha4franka/) for the gripper used in the videos.
@@ -98,9 +103,41 @@ While `ROS2` frameworks like `MoveIt` offer comprehensive motion planning capabi
 We present a set of lightweight, torque-based Cartesian and joint-space controllers implemented in C++ for `ros2_control`, compatible with any robot exposing an effort interface—a common standard among modern manipulators.
 Our controllers incorporate friction compensation, joint limit avoidance, and error clipping, and have been validated on the Franka Robotics FR3 on hardware, and on various platforms in simulation.
 
-Designed for fast integration and real-time control, our implementation lowers the barrier to deploying learning-based algorithms on `ROS2`-compatible platforms.
+We provide tooling to collect data in `LeRobotDataset` format using teleoperation and deploy learning-based policies with minimal effort using `CRISP_PY` and `CRISP_GYM`.
 
 **Why the name "CRISP"**? "CRISP" reflects our design philosophy behind the package: a concise, to-the-point implementation for easy deployment and integration in other software stacks.
+
+## Test Robots
+
+
+Tested in real hardware with:
+<div class="robot-grid">
+  <div class="robot-card">
+    <img src="media/fr3_visual.png" alt="FR3">
+    <div class="robot-name">FR3</div>
+  </div>
+  <div class="robot-card">
+    <img src="media/panda_visual.png" alt="Panda">
+    <div class="robot-name">Panda</div>
+  </div>
+  <div class="robot-card greyscale">
+    <img src="media/ur10_visual.png" alt="UR10">
+    <div class="robot-name">UR10 (coming soon...)</div>
+  </div>
+</div>
+
+Tested in simulation with:
+<div class="robot-grid">
+  <div class="robot-card">
+    <img src="media/iiwa14_visual.png" alt="IIWA">
+    <div class="robot-name">IIWA14</div>
+  </div>
+  <div class="robot-card greyscale">
+    <img src="media/kinova_visual.png" alt="Kinova">
+    <div class="robot-name">Kinova</div>
+  </div>
+</div>
+
 
 ## Features
 - 🐍 **Python interface** to move your ROS2 robot around without having to think about topics, spinning, and more ROS2 concepts but without losing the powerful ROS2 API. Check [CRISP_PY](https://github.com/utiasDSL/crisp_py) for more information and examples.

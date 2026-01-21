@@ -121,3 +121,4 @@ markdown_extensions = [
 
 [[markdown_extensions]]
 "pydownx.arithmatex" = { generic = true }
+
