@@ -107,10 +107,9 @@ We provide tooling to collect data in `LeRobotDataset` format using teleoperatio
 
 **Why the name "CRISP"**? "CRISP" reflects our design philosophy behind the package: a concise, to-the-point implementation for easy deployment and integration in other software stacks.
 
-## Test Robots
+## Robots Tested
 
-
-Tested in real hardware with:
+Our controllers have been tested in real hardware on the following robots:
 <div class="robot-grid">
   <div class="robot-card">
     <img src="media/fr3_visual.png" alt="FR3">
@@ -126,14 +125,14 @@ Tested in real hardware with:
   </div>
 </div>
 
-Tested in simulation with:
+... and in simulation on:
 <div class="robot-grid">
   <div class="robot-card">
     <img src="media/iiwa14_visual.png" alt="IIWA">
     <div class="robot-name">IIWA14</div>
   </div>
   <div class="robot-card greyscale">
-    <img src="media/kinova_visual.png" alt="Kinova">
+    <img src="media/kinova_visual.png" alt="">
     <div class="robot-name">Kinova</div>
   </div>
 </div>

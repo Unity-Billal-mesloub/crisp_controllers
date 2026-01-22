@@ -229,7 +229,7 @@
   }
 
   .carousel-caption {
-    font-size: 0.85rem;
+    font-size: 0.25rem;
     padding: 0.8rem 1rem;
   }
 
@@ -265,7 +265,7 @@
 }
 
 .robot-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.2);
 }
 
 .robot-card.greyscale img {
