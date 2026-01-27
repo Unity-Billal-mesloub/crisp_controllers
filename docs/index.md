@@ -7,18 +7,21 @@ hide:
 <img src="media/crisp_logo_dark.webp#only-dark" alt="CRISP Controllers Logo"/>
 <img src="media/crisp_logo_light.webp#only-light" alt="CRISP Controllers Logo"/>
 
-
-
 # CRISP - **C**ompliant **R**OS2 Controllers for Learn**i**ng-Ba**s**ed Manipulation **P**olicies
 
 *Authors: [Daniel San Jose Pro](https://danielsanjosepro.github.io)[^1], [Oliver Hausdörfer](https://oliver.hausdoerfer.de/)[^1], [Ralf Römer](https://ralfroemer99.github.io)[^1], Maximilian Dösch[^1], [Martin Schuck](https://amacati.github.io/) [^1] and Angela Schoellig [^1]*.
 [^1]: The authors are with Technical University of Munich, Germany; TUM School of Computation, Information and Technology, Department of Computer Engineering, Learning Systems and Robotics Lab; Munich Institute of Robotics and Machine Intelligence.
 
-> A collection of real-time, C++ controllers for compliant torque-based control for manipulators compatible with `ros2_control`. Developed for deploying high-level learning-based policies (VLA, Diffusion, ...) and teleoperation on your manipulator. It is compatible with any manipulator offering an effort interface.
+You want to deploy your learning-based policy to your manipulator, or collect teleoperation data? `CRISP` provides the tools for that.
+
+- `CRISP` provides the `ros2_control` low-level controllers (compliant, real-time, C++, torque-based) and simple python interfaces `CRISP_PY` to interface with them. It is compatible with any manipulator offering an joint-level torque effort interface.
+
+- `CRISP` provides also a Gymnasium environment `CRISP_GYM` to deploy learning-based `LeRobot` policies and collect data in `LeRobotDataset` format.
 
 _If you use this work, please cite it using the [bibtex](#citing) below._
 
-Check the [controllers (CRISP controllers) :simple-github:](https://github.com/utiasDSL/crisp_controllers) , robot [demos (CRISP controllers demos) :simple-github:](https://github.com/utiasDSL/crisp_controllers_demos), a simple [python interface (CRISP_PY) :simple-github:](https://github.com/utiasDSL/crisp_py), and a [Gymnasium wrapper (CRISP_GYM) :simple-github:](https://github.com/utiasDSL/crisp_gym) for real-world experiments.
+Check the [controllers (CRISP controllers) :simple-github:](https://github.com/utiasDSL/crisp_controllers), the simple [python interface (CRISP_PY) :simple-github:](https://github.com/utiasDSL/crisp_py), and a [Gymnasium wrapper (CRISP_GYM) :simple-github:](https://github.com/utiasDSL/crisp_gym) for real-world experiments.
+
 
 !!! info "Aloha gripper for Manipulators"
     Check out [aloha4franka](https://tum-lsy.github.io/aloha4franka/) for the gripper used in the videos.
@@ -32,31 +35,31 @@ Check the [controllers (CRISP controllers) :simple-github:](https://github.com/u
 <div class="carousel-container">
   <div class="carousel">
     <div class="carousel-slide active">
-      <video src="media/videos_concatenaded.mp4" playsinline muted loop autoplay  alt="Robot Collection"></video>
+      <video src="../media/videos_concatenaded.mp4" playsinline muted loop autoplay  alt="Robot Collection"></video>
       <div class="carousel-caption">End-to-end policies in action performing different contact-rich tasks.</div>
     </div>
     <div class="carousel-slide">
-      <video src="media/wrist_cam.mp4" playsinline muted loop autoplay  alt="Data visualized"></video>
+      <video src="../media/wrist_cam.mp4" playsinline muted loop autoplay  alt="Data visualized"></video>
       <div class="carousel-caption">Recorded Trajectories in LeRobot format for different tasks using CRISP.</div>
     </div>
     <div class="carousel-slide">
-      <video src="media/viser_visualization.mp4" playsinline muted loop autoplay  alt="Viser"></video>
+      <video src="../media/viser_visualization.mp4" playsinline muted loop autoplay  alt="Viser"></video>
       <div class="carousel-caption">Provided example with 1x video of the tracking capabilities of the controller.</div>
     </div>
     <div class="carousel-slide">
-      <video src="media/pap_demo.mp4" playsinline muted loop autoplay  alt="Teleoperation PaP"></video>
+      <video src="../media/pap_demo.mp4" playsinline muted loop autoplay  alt="Teleoperation PaP"></video>
       <div class="carousel-caption">Leader-follower teleoperation for a pick and place task.</div>
     </div>
     <div class="carousel-slide">
-      <img src="media/franka.gif" alt="Franka Robot Demo">
+      <img src="../media/franka.gif" alt="Franka Robot Demo">
       <div class="carousel-caption">Controllers: Franka Robot - Following a moving target while base joint follows a sine curve</div>
     </div>
     <div class="carousel-slide">
-      <img src="media/kinova.gif" alt="Kinova Robot Demo">
+      <img src="../media/kinova.gif" alt="Kinova Robot Demo">
       <div class="carousel-caption">Controllers: Kinova Robot - Simulated robot with continuous joints and nullspace control</div>
     </div>
     <div class="carousel-slide">
-      <img src="media/iiwa.gif" alt="IIWA Robot Demo">
+      <img src="../media/iiwa.gif" alt="IIWA Robot Demo">
       <div class="carousel-caption">Controllers: IIWA Robot - Impedance control in simulation</div>
     </div>
   </div>
@@ -98,9 +101,72 @@ While `ROS2` frameworks like `MoveIt` offer comprehensive motion planning capabi
 We present a set of lightweight, torque-based Cartesian and joint-space controllers implemented in C++ for `ros2_control`, compatible with any robot exposing an effort interface—a common standard among modern manipulators.
 Our controllers incorporate friction compensation, joint limit avoidance, and error clipping, and have been validated on the Franka Robotics FR3 on hardware, and on various platforms in simulation.
 
-Designed for fast integration and real-time control, our implementation lowers the barrier to deploying learning-based algorithms on `ROS2`-compatible platforms.
+We provide tooling to collect data in `LeRobotDataset` format using teleoperation and deploy learning-based policies with minimal effort using `CRISP_PY` and `CRISP_GYM`.
 
 **Why the name "CRISP"**? "CRISP" reflects our design philosophy behind the package: a concise, to-the-point implementation for easy deployment and integration in other software stacks.
+
+## Real World Deployments
+
+Our controllers have been tested in real hardware on the following robots:
+<div class="robot-grid">
+  <div class="robot-card">
+    <a href="https://github.com/danielsanjosepro/pixi_franka_ros2">
+        <img src="media/fr3_visual.png" alt="FR3">
+        <div class="robot-name">FR3</div>
+    </a>
+  </div>
+  <div class="robot-card">
+    <a href="https://github.com/lvjonok/pixi_panda_ros2">
+        <img src="media/panda_visual.png" alt="Panda">
+        <div class="robot-name">Panda</div>
+    </a>
+  </div>
+
+  <div class="robot-card">
+    <a href="https://github.com/danielsanjosepro/crisp_ur_demo">
+        <img src="media/ur10_visual.png" alt="UR5">
+        <div class="robot-name">UR5</div>
+    </a>
+  </div>
+  <!-- <div class="robot-card greyscale"> -->
+  <!--   <img src="media/dynaarm_visual.png" alt="UR10"> -->
+  <!--   <div class="robot-name">DynaArm</div> -->
+  <!-- </div> -->
+</div>
+
+<!---->
+<!-- ... and in simulation on: -->
+<!-- <div class="robot-grid"> -->
+<!--   <div class="robot-card"> -->
+<!--     <img src="media/iiwa14_visual.png" alt="IIWA"> -->
+<!--     <div class="robot-name">IIWA14</div> -->
+<!--   </div> -->
+<!--   <div class="robot-card greyscale"> -->
+<!--     <img src="media/kinova_visual.png" alt=""> -->
+<!--     <div class="robot-name">Kinova</div> -->
+<!--   </div> -->
+<!-- </div> -->
+<!---->
+
+Many thanks community contributions:
+
+- Lev Kozlov [@lvjonok](https://github.com/lvjonok) for testing and providing interfaces for the Panda/FER.
+- Vincenzo Orlando [@VinsOrl09](https://github.com/lvjonok) for testing and providing interfaces for the UR robots.
+
+Check the robots in action:
+
+<div class="video-container">
+    <div class="video-item">
+      <video src="../media/crisp_ur5_test.mp4" playsinline muted loop autoplay  alt="Data visualized"></video>
+      <div class="hover-text">UR5 Robot using a CRISP controller to track a circular trajectory while being disturbed.</div>
+    </div>
+    <div class="video-item">
+      <video src="../media/crisp_fr3_test.mp4" playsinline muted loop autoplay  alt="Data visualized"></video>
+      <div class="hover-text">End-To-End policy stacking Lego bricks with the CRISP  controllers.</div>
+    </div>
+</div>
+
+
 
 ## Features
 - 🐍 **Python interface** to move your ROS2 robot around without having to think about topics, spinning, and more ROS2 concepts but without losing the powerful ROS2 API. Check [CRISP_PY](https://github.com/utiasDSL/crisp_py) for more information and examples.

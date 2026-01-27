@@ -22,6 +22,7 @@ Robots that we tested are:
 
 - **FR3** (real and simulated): https://github.com/danielsanjosepro/pixi_franka_ros2
 - **FER/Panda** (real): https://github.com/lvjonok/pixi_panda_ros2
+- **UR5** (real): https://github.com/danielsanjosepro/crisp_ur_demo
 - **IIWA** (simulated): https://github.com/danielsanjosepro/pixi_iiwa_ros2
 
 ### Grippers
@@ -54,12 +55,13 @@ Some other manipulators that could be added to this list is [Duatic](https://git
 
 ### Available Demos
 
-| Robots | Franka Robotics FR3 | FR Dual FR3 | IIWA 14 | Kinova Gen3 |
-| :--- | :---: | :---: | :---: | :---: |
-| MuJoCo simulated Hardware | ✅ | ✅ | ✅ | ✅ |
-| Real Hardware | ✅ | ✅ | ❔[^1]  | ❔[^1] |
+| Robots | Franka Robotics FR3 | FR Dual FR3 | IIWA 14 | Kinova Gen3 | UR5 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| MuJoCo simulated Hardware | ✅ | ✅ | ✅ | ✅ | ✅ [^2]|
+| Real Hardware | ✅ | ✅ | ❔[^1]  | ❔[^1] |  ✅ [^2] |
 
 [^1]: Untested, but effort interface available.
+[^2]: Available at: https://github.com/danielsanjosepro/crisp_ur_demo
 
 We also have some examples with cameras.
 
