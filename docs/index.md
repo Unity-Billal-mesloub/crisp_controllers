@@ -151,7 +151,7 @@ Our controllers have been tested in real hardware on the following robots:
 Many thanks community contributions:
 
 - Lev Kozlov [@lvjonok](https://github.com/lvjonok) for testing and providing interfaces for the Panda/FER.
-- Vincenzo Orlando [VinsOrl09](https://github.com/lvjonok) for testing and providing interfaces for the UR robots.
+- Vincenzo Orlando [@VinsOrl09](https://github.com/lvjonok) for testing and providing interfaces for the UR robots.
 
 Check the robots in action:
 
