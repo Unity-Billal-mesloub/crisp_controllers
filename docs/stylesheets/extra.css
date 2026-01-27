@@ -21,6 +21,7 @@
   justify-content: center;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0.2rem;
 }
 
 .video-item video {
@@ -28,6 +29,30 @@
   height: auto;
   border-radius: 12px;
   background-color: rgba(0, 0, 0, 0.0);
+  transition: filter 0.3s ease;
+}
+
+.video-item:hover video {
+  filter: grayscale(100%) brightness(0.5);
+}
+
+.video-item .hover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-align: center;
+  padding: 0.1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.video-item:hover .hover-text {
+  opacity: 1;
 }
 
 .highlight .vc {

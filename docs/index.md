@@ -7,8 +7,6 @@ hide:
 <img src="media/crisp_logo_dark.webp#only-dark" alt="CRISP Controllers Logo"/>
 <img src="media/crisp_logo_light.webp#only-light" alt="CRISP Controllers Logo"/>
 
-
-
 # CRISP - **C**ompliant **R**OS2 Controllers for Learn**i**ng-Ba**s**ed Manipulation **P**olicies
 
 *Authors: [Daniel San Jose Pro](https://danielsanjosepro.github.io)[^1], [Oliver Hausdörfer](https://oliver.hausdoerfer.de/)[^1], [Ralf Römer](https://ralfroemer99.github.io)[^1], Maximilian Dösch[^1], [Martin Schuck](https://amacati.github.io/) [^1] and Angela Schoellig [^1]*.
@@ -107,35 +105,67 @@ We provide tooling to collect data in `LeRobotDataset` format using teleoperatio
 
 **Why the name "CRISP"**? "CRISP" reflects our design philosophy behind the package: a concise, to-the-point implementation for easy deployment and integration in other software stacks.
 
-## Robots Tested
+## Real World Deployments
 
 Our controllers have been tested in real hardware on the following robots:
 <div class="robot-grid">
   <div class="robot-card">
-    <img src="media/fr3_visual.png" alt="FR3">
-    <div class="robot-name">FR3</div>
+    <a href="https://github.com/danielsanjosepro/pixi_franka_ros2">
+        <img src="media/fr3_visual.png" alt="FR3">
+        <div class="robot-name">FR3</div>
+    </a>
   </div>
   <div class="robot-card">
-    <img src="media/panda_visual.png" alt="Panda">
-    <div class="robot-name">Panda</div>
+    <a href="https://github.com/lvjonok/pixi_panda_ros2">
+        <img src="media/panda_visual.png" alt="Panda">
+        <div class="robot-name">Panda</div>
+    </a>
   </div>
-  <div class="robot-card greyscale">
-    <img src="media/ur10_visual.png" alt="UR10">
-    <div class="robot-name">UR10 (coming soon...)</div>
+
+  <div class="robot-card">
+    <a href="https://github.com/danielsanjosepro/crisp_ur_demo">
+        <img src="media/ur10_visual.png" alt="UR5">
+        <div class="robot-name">UR5</div>
+    </a>
   </div>
+  <!-- <div class="robot-card greyscale"> -->
+  <!--   <img src="media/dynaarm_visual.png" alt="UR10"> -->
+  <!--   <div class="robot-name">DynaArm</div> -->
+  <!-- </div> -->
 </div>
 
-... and in simulation on:
-<div class="robot-grid">
-  <div class="robot-card">
-    <img src="media/iiwa14_visual.png" alt="IIWA">
-    <div class="robot-name">IIWA14</div>
-  </div>
-  <div class="robot-card greyscale">
-    <img src="media/kinova_visual.png" alt="">
-    <div class="robot-name">Kinova</div>
-  </div>
+<!---->
+<!-- ... and in simulation on: -->
+<!-- <div class="robot-grid"> -->
+<!--   <div class="robot-card"> -->
+<!--     <img src="media/iiwa14_visual.png" alt="IIWA"> -->
+<!--     <div class="robot-name">IIWA14</div> -->
+<!--   </div> -->
+<!--   <div class="robot-card greyscale"> -->
+<!--     <img src="media/kinova_visual.png" alt=""> -->
+<!--     <div class="robot-name">Kinova</div> -->
+<!--   </div> -->
+<!-- </div> -->
+<!---->
+
+Many thanks community contributions:
+
+- Lev Kozlov [@lvjonok](https://github.com/lvjonok) for testing and providing interfaces for the Panda/FER.
+- Vincenzo Orlando [VinsOrl09](https://github.com/lvjonok) for testing and providing interfaces for the UR robots.
+
+Check the robots in action:
+
+<div class="video-container">
+    <div class="video-item">
+      <video src="../media/crisp_ur5_test.mp4" playsinline muted loop autoplay  alt="Data visualized"></video>
+      <div class="hover-text">UR5 Robot using a CRISP controller to track a circular trajectory while being disturbed.</div>
+    </div>
+    <div class="video-item">
+      <video src="../media/crisp_fr3_test.mp4" playsinline muted loop autoplay  alt="Data visualized"></video>
+      <div class="hover-text">End-To-End policy stacking Lego bricks with the CRISP  controllers.</div>
+    </div>
 </div>
+
 
 
 ## Features
