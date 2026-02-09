@@ -192,7 +192,7 @@ Check the robots in action:
 </div>
 <div class="video-container">
     <div class="video-item">
-      <video src="media/duatic_video.mov" playsinline muted loop autoplay  alt="Data visualized"></video>
+      <video src="media/dynaarm_video.mp4" playsinline muted loop autoplay  alt="Data visualized"></video>
       <div class="hover-text">DynaArm running a soft compliant controller holding its position.</div>
     </div>
 </div>
