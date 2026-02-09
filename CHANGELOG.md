@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/utiasDSL/crisp_controllers/compare/v1.2.3...v1.3.0) (2026-02-09)
+
+
+### Features
+
+* Add new parameters for the controllers and fix reference frame when using world base jacobian ([#29](https://github.com/utiasDSL/crisp_controllers/issues/29)) ([2544834](https://github.com/utiasDSL/crisp_controllers/commit/25448340bd536416819ebce55722b57b544d7027))
+* Update docs with dynaarm ([#30](https://github.com/utiasDSL/crisp_controllers/issues/30)) ([aa2be28](https://github.com/utiasDSL/crisp_controllers/commit/aa2be286ef09b3d12a4ae35ecb9146f2f2ae2f9a))
+
 ## [1.2.3](https://github.com/utiasDSL/crisp_controllers/compare/v1.2.2...v1.2.3) (2026-01-29)
 
 
