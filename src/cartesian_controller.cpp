@@ -1,4 +1,5 @@
 #include "crisp_controllers/utils/fiters.hpp"
+#include "crisp_controllers/utils/ros2_version.hpp"
 #include "crisp_controllers/utils/torque_rate_saturation.hpp"
 
 #include <Eigen/src/Core/Matrix.h>
@@ -13,6 +14,9 @@
 #include "pinocchio/algorithm/model.hpp"
 #include <cstddef>
 #include <fmt/format.h>
+#if HAS_ROS2_CONTROL_INTROSPECTION
+#include <hardware_interface/introspection.hpp>
+#endif
 #include <pinocchio/algorithm/aba.hpp>
 #include <pinocchio/algorithm/compute-all-terms.hpp>
 #include <pinocchio/algorithm/frames.hxx>
@@ -404,6 +408,28 @@ CallbackReturn CartesianController::on_configure(
 
   // Initialize nullspace projection matrix
   nullspace_projection = Eigen::MatrixXd::Identity(model_.nv, model_.nv);
+
+#if HAS_ROS2_CONTROL_INTROSPECTION
+  this->enable_introspection(true);
+  for (int i = 0; i < tau_task.size(); ++i) {
+    REGISTER_ROS2_CONTROL_INTROSPECTION("tau_task_" + std::to_string(i),
+                                        &tau_task[i]);
+    REGISTER_ROS2_CONTROL_INTROSPECTION("tau_desired_" + std::to_string(i),
+                                        &tau_d[i]);
+  }
+  for (int i = 0; i < error.size(); ++i) {
+    REGISTER_ROS2_CONTROL_INTROSPECTION("error_" + std::to_string(i),
+                                        &error[i]);
+    REGISTER_ROS2_CONTROL_INTROSPECTION("target_position_" + std::to_string(i),
+                                        &target_position_[i]);
+  }
+  for (int i = 0; i < target_orientation_.coeffs().size(); ++i) {
+    REGISTER_ROS2_CONTROL_INTROSPECTION(
+        "target_orientation_" + std::to_string(i),
+        &target_orientation_.coeffs()[i]);
+  }
+#endif
+
 
   RCLCPP_INFO(get_node()->get_logger(), "State interfaces and control vectors initialized.");
 
