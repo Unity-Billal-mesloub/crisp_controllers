@@ -28,7 +28,21 @@ export CRISP_CONFIG_PATH=/path/to/config1/folder:/path/to/config2/folder  # opti
 
 If you want to work in a *multi-machine setup* (e.g. policy runs in a different machine as controllers/cameras), then check [how to setup multi-machine in ROS2](getting_started_multiple_machines.md).
 
----
+!!! WARNING "Note on LeRobotDataset version"
+    Take a look at the `pixi.toml`. You can define your `lerobot` version there.
+    If you want to use later LeRobotDataset v3.0, you need to remove the `rerun` dependency/downgrade it in the `lerobot` like it is done [here](https://github.com/danielsanjosepro/lerobot/commit/b7aea681cda32eee21fa2b368af2119596f4e3ea) since it requires `numpy>=2.0` which is not compatible with the ROS2 versions of `numpy`.
+    This will require a small change in the `pixi.toml`:
+    ```toml title="pixi.toml" hl_lines="11-12"
+    [feature.lerobot.pypi-dependencies]
+    # Commnet this line:
+    # lerobot = { git = "https://github.com/huggingface/lerobot", rev = "dacd1d7f5c719c3e56d7b7154a751bef6d5bd23c", extras = ["smolvla"]}
+    # Add use your fixed fork:
+    lerobot = { git = "https://github.com/your-fork/lerobot" }
+    # Or if present locally:
+    # lerobot = { path = "../lerobot/", editable = true }
+    ```
+    The `crisp_gym` supports both dataset versions [since this PR](https://github.com/utiasDSL/crisp_gym/pull/46).
+
 Now we can install the environment:
 
 ```sh
