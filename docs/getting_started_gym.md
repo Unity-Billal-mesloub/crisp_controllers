@@ -8,7 +8,7 @@ cd crisp_gym
 Now, you should set a few things before installing everything.
 Create a file `scripts/set_env.sh` which will be sourced every time that you run a command in your environment.
 The script will not be tracked by git.
-In this script you need to add a environment variables:
+In this script you need to add the following environment variables:
 
 - `ROS_DOMAIN_ID` **(Required)**: which is used to define nodes that should be able to see each other. In our [ROS2 nodes](getting_started_controllers.md) they are set to 100 as default.
 - `CRISP_CONFIG_PATH` **(Optional)**: which should be the path to a config folder similar to [config path of CRISP_PY](https://github.com/utiasDSL/crisp_py/tree/main/config) or [config path of CRISP_GYM](https://github.com/utiasDSL/crisp_gym/tree/main/crisp_gym/config) but with your own custom configurations.
@@ -26,7 +26,7 @@ export CRISP_CONFIG_PATH=/path/to/config1/folder:/path/to/config2/folder  # opti
 1. This will avoid downloading large files when cloning the repository. You can always download them later with `git lfs pull`.
 2. This will remove logging from SVT codecs, which are used to create data in LeRobot format. The logs can be quite verbose.
 
-If you want to work in a *multi-machine setup* (e.g. policy runs in a different machine as controllers/cameras), then check [how to setup multi-machine in ROS2](getting_started_multiple_machines.md).
+If you want to work in a *multi-machine setup* (e.g. policy runs on a different machine than controllers/cameras), then check [how to set up multi-machine in ROS2](getting_started_multiple_machines.md).
 
 !!! WARNING "Note on LeRobotDataset version"
     Take a look at the `pixi.toml`. You can define your `lerobot` version there.
@@ -34,9 +34,9 @@ If you want to work in a *multi-machine setup* (e.g. policy runs in a different 
     This will require a small change in the `pixi.toml`:
     ```toml title="pixi.toml" hl_lines="11-12"
     [feature.lerobot.pypi-dependencies]
-    # Commnet this line:
+    # Comment this line:
     # lerobot = { git = "https://github.com/huggingface/lerobot", rev = "dacd1d7f5c719c3e56d7b7154a751bef6d5bd23c", extras = ["smolvla"]}
-    # Add use your fixed fork:
+    # Add your fixed fork:
     lerobot = { git = "https://github.com/your-fork/lerobot" }
     # Or if present locally:
     # lerobot = { path = "../lerobot/", editable = true }
