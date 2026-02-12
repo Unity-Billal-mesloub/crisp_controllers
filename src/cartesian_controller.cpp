@@ -420,9 +420,13 @@ CallbackReturn CartesianController::on_configure(
   for (int i = 0; i < error.size(); ++i) {
     REGISTER_ROS2_CONTROL_INTROSPECTION("error_" + std::to_string(i),
                                         &error[i]);
-    REGISTER_ROS2_CONTROL_INTROSPECTION("target_position_" + std::to_string(i),
-                                        &target_position_[i]);
   }
+  REGISTER_ROS2_CONTROL_INTROSPECTION("target_position_x",
+                                      &target_position_[0]);
+  REGISTER_ROS2_CONTROL_INTROSPECTION("target_position_y",
+                                      &target_position_[1]);
+  REGISTER_ROS2_CONTROL_INTROSPECTION("target_position_z",
+                                      &target_position_[2]);
   for (int i = 0; i < target_orientation_.coeffs().size(); ++i) {
     REGISTER_ROS2_CONTROL_INTROSPECTION(
         "target_orientation_" + std::to_string(i),
